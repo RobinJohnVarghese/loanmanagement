@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'account',
     'oauth2_provider',
     'rest_framework_simplejwt',
+    'loan',
     # 'django.contrib.sites',
 ]
 
@@ -53,6 +54,9 @@ ROOT_URLCONF = 'loanManagement.urls'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
     ),
 }
 
@@ -178,7 +182,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,

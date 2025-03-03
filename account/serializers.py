@@ -23,7 +23,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 # OTP Serializer for email verification
 class OTPSerializer(serializers.Serializer):
     email = serializers.EmailField()
-    otp_code = serializers.CharField(max_length=6)
+    otpCode = serializers.CharField(max_length=6)
 
 # Serializer to return user data with roles (Admin/User)
 class UserDetailSerializer(serializers.ModelSerializer):

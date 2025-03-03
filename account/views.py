@@ -69,6 +69,6 @@ class AdminAccessView(views.APIView):
     permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
 
     def get(self, request):
-        print("11111111111",request)
+        # print("11111111111",request)
         return Response({"message": "Admin access granted."}, status=status.HTTP_200_OK)
 

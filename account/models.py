@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.utils import timezone
-import random
-import string
+
 
 
 
@@ -58,4 +57,4 @@ class OTP(models.Model):
     createdAt = models.DateTimeField(auto_now_add=True)
 
     def is_expired(self):
-        return (timezone.now() - self.created_at).seconds > 60  # 1 minutes expiration
+        return (timezone.now() - self.createdAt).seconds > 120  # 2 minutes expiration

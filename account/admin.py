@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import UserAccount
+from .models import UserAccount,OTP
 
 
 
@@ -30,3 +30,11 @@ class CustomUserAdmin(UserAdmin):
 
     # Set the ordering of objects in the admin panel
     ordering = ('is_staff','email',)
+
+
+    # admin.site.register(OTP)
+class OTPAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'otpCode', 'createdAt')
+    list_display_links = ('id', 'user')
+
+admin.site.register(OTP, OTPAdmin)
